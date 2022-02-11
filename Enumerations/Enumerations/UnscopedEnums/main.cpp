@@ -242,11 +242,50 @@ void test3() {
 	}    
 }
 
+//Use for test 4:
+
+enum designFlags {
+    BOLD = 1,
+    ITALICS = 2,
+    UNDERLINE = 4
+};
+
+/* Since, the integral constants are power of 2, you can combine two or more flags
+at once without overlapping using bitwise OR | operator. 
+This allows you to choose two or more flags at once. */
+void test4(){
+    int myDesign = BOLD | UNDERLINE; 
+
+        //    00000001
+        //  | 00000100
+        //  ___________
+        //    00000101
+
+    std::cout << myDesign<<std::endl;
+
+
+
+}
+
+
 int main()
 {
 //  test1();
 //	test2();
-	test3();
+//	test3();
+    test4();
+
+    //testing of the operator |= inclusive OR.
+    int A = 5;
+    std::cout<<"what is A Start:"<<A<<std::endl;
+    int B{3};
+    std::cout<<"what is B Start:"<<B<<std::endl;
+    A |= B; //inclusive OR operation
+
+    std::cout<<"what is A now: "<<A<<std::endl;
+
+    int C {A|B};
+    std::cout<<"what is C: "<<C<<std::endl;
 	
 	std::cout << "\n";
 	return 0;
