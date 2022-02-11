@@ -198,6 +198,9 @@ void test9() {
     std::cout << std::endl;
 
     std::copy(vec1.begin(), vec1.end(), std::back_inserter(vec2));
+    //std::copy(vec1.begin(), vec1.end(), std::inserter(vec2,vec2.back()));
+    //vec2.resize(7);
+    //std::copy(vec1.begin(), vec1.end(), vec2.end());
     display(vec1);
     display(vec2);
     std::cout << std::endl;
@@ -261,10 +264,44 @@ void test11() {
     }
     display(vec1);
 }
+// C++ code to demonstrate the working of copy() using inserter()
+void test12() {
+    /* std::vector<int> v1 = {1, 5, 7, 3, 8, 3};
+    std::vector<int>::iterator itr;
+    std::vector<int> v2;
+ 
+    //using inserter()
+    copy(v1.begin(), v1.end(), std::inserter(v2, itr));
+ 
+    std::cout << "\nThe new vector elements entered using inserter: ";
+    for (int i = 0; i < v2.size(); i++)
+        std::cout << v2[i] << " ";
 
+    std::cout << std::endl; */
+//---------------------------------------------------------------------------
+    std::vector<int> vec1 {1,2,3,4,5};   
+    std::vector<int> vec2 {10,20};
+    
+    display(vec1); 
+    display(vec2);
+    std::cout << std::endl;
+
+    std::cout<<"the last item iter is "<<*vec2.end()<<std::endl;
+//   end() function is used to return an iterator pointing to next to last element of the vector container. 
+//   end() function returns a bidirectional iterator. 
+    //using inserter()
+    copy(vec1.begin(), vec1.end(), std::inserter(vec2, vec2.end()));
+    std::cout<<"***"<<std::endl;
+   
+
+    display(vec1);
+    display(vec2);
+    std::cout << std::endl;
+
+}
 int main()  {    
 
-    test1();
+/*test1();
     test2();
     test3();
     test4();
@@ -274,7 +311,7 @@ int main()  {
     test8();
     test9();
     test10();
-    test11();
-    
+    test11(); */
+    test12();
     return 0;
 }
